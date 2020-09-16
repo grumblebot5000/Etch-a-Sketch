@@ -1,0 +1,16 @@
+#projectTitle {
+	text-align: center;
+	background-color: #66d9ff;
+}
+
+.gridContainer {
+	border: 5px solid black;
+	display: grid;
+	grid-template-columns: repeat(16, minmax(60px, 1fr));
+	grid-template-rows: repeat(16, minmax(60px, 1fr)); 
+}
+
+.gridBox {
+	/*background-color: blue;*/
+	/*border: 1px solid cyan;*/
+}
