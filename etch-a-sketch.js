@@ -27,17 +27,3 @@ function appendChildren(parent, children){
 		parent.appendChild(child);
 	});
 }
-
-
-// called by 'mouseenter' -- changes background color
-function changeColor(e){
-	console.log('mouse thing worked');
-	let divToChange = document.getElementById('e.target.id');
-	console.log(divToChange);
-	// gridBoxes.style.backgroundColor = 'red';
-}
-
-//***DOM ELEMENTS***//
-let gridBoxes = document.getElementsByClassName('gridBox');
-console.log('logged gridBoxes: ' + gridBoxes);
-gridBoxes.addEventListener('mouseenter', changeColor);
