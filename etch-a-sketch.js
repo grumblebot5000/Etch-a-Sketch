@@ -17,7 +17,6 @@ function createGridDivs(label){
 	let box = document.createElement('div');
 	box.className = 'gridBox';
 	box.id = label;
-	box.textContent = label; // visual confirmation this is working
 	return box;
 }
 
@@ -27,3 +26,19 @@ function appendChildren(parent, children){
 		parent.appendChild(child);
 	});
 }
+
+function changeBoxColor(here){
+	console.log('ID of thing entered: ' + here);
+	document.getElementById(here).style.backgroundColor = 'blue';
+}
+
+//***DOM STUFF**//
+window.addEventListener('load', createTheGrid(16));
+
+document.addEventListener('mousemove', function(e){
+	console.log('e.id = ' + e);
+	if(e.target.id != 'projectTitle'){
+		let theBox = e.target.id;
+		changeBoxColor(theBox);
+	}
+})
