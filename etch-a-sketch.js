@@ -1,5 +1,6 @@
 //***FUNCTIONS & Global Variables***//
 
+// initialize the page with a grid of square divs
 function createTheGrid(gridSize){
 	gridSize *= gridSize;
 	console.log('grid size squared: ' + gridSize);
@@ -15,7 +16,7 @@ function createTheGrid(gridSize){
 // creates <div className='gridBox'></div>
 function createGridDivs(label){
 	let box = document.createElement('div');
-	box.className = 'gridBox';
+	box.className = 'gridBox-white';
 	box.id = label;
 	return box;
 }
@@ -27,18 +28,13 @@ function appendChildren(parent, children){
 	});
 }
 
-function changeBoxColor(here){
-	console.log('ID of thing entered: ' + here);
-	document.getElementById(here).style.backgroundColor = 'blue';
-}
-
 //***DOM STUFF**//
 window.addEventListener('load', createTheGrid(16));
 
 document.addEventListener('mousemove', function(e){
 	console.log('e.id = ' + e);
-	if(e.target.id != 'projectTitle'){
+	if(e.target.className == 'gridBox-white'){
 		let theBox = e.target.id;
-		changeBoxColor(theBox);
+		document.getElementById(theBox).className = 'gridBox-color';
 	}
 })
