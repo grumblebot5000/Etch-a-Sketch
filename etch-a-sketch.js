@@ -38,3 +38,12 @@ document.addEventListener('mousemove', function(e){
 		document.getElementById(theBox).className = 'gridBox-color';
 	}
 })
+
+// create reset button and insert into page
+const resetButton = document.createElement('button');
+resetButton.id = 'resetButton';
+resetButton.textContent = 'Clear Screen';
+const buttonDiv = document.createElement('div');
+document.getElementById('projectTitle').appendChild(buttonDiv);
+buttonDiv.appendChild(resetButton);
+
