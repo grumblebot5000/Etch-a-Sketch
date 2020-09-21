@@ -5,8 +5,8 @@
 
 .gridContainer {
 	display: grid;
-	grid-template-columns: repeat(16, minmax(60px, 1fr));
-	grid-template-rows: repeat(16, minmax(60px, 1fr)); 
+ 	grid-template-columns: repeat(16, minmax(60px, 1fr));
+ 	grid-template-rows: repeat(16, minmax(60px, 1fr)); 
 }
 
 .gridBox-white {
@@ -14,5 +14,5 @@
 }
 
 .gridBox-color {
-	background-color: blue;
+	background-color: black;
 }
