@@ -7,7 +7,8 @@ window.addEventListener('load', initPage);
 // When mouse enters gridBox, change the background color
 document.addEventListener('mousemove', function(e){
 	console.log('this id is: ' + e.target.id);
-	if(e.target.id != 'projectTitle'){
+	// if(e.target.id != 'projectTitle' && e.target.id != 'buttonContainer'){
+	if(e.target.className == 'gridBoxInit'){
 		let idNum = e.target.id;
 		drawLine(idNum);
 	}
@@ -53,9 +54,10 @@ function drawLine(idNum){
 // Create and insert the Reset button on the page
 const resetButton = document.createElement('button');
 resetButton.id = 'resetButton';
+resetButton.textContent = 'Reset';
 
 // Create div to append to h1 and hold button
 const buttonContainer = document.createElement('div');
 buttonContainer.id = 'buttonContainer';
 buttonContainer.appendChild(resetButton);
-
+document.getElementById('projectTitle').appendChild(buttonContainer);
