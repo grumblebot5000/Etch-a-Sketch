@@ -6,8 +6,11 @@ window.addEventListener('load', initPage);
 
 // When mouse enters gridBox, change the background color
 document.addEventListener('mousemove', function(e){
-	let idNum = e.target.id;
-	drawLine(idNum);
+	console.log('this id is: ' + e.target.id);
+	if(e.target.id != 'projectTitle'){
+		let idNum = e.target.id;
+		drawLine(idNum);
+	}
 })
 
 // RESET THE PAGE and GET RESOLUTION FOR NEXT PAGE //
@@ -42,6 +45,17 @@ function drawGrid(num){
 	}
 }
 
+// Draw line on screen with mouse pointer
 function drawLine(idNum){
 	document.getElementById(idNum).className = 'gridBoxDrawn';
 }
+
+// Create and insert the Reset button on the page
+const resetButton = document.createElement('button');
+resetButton.id = 'resetButton';
+
+// Create div to append to h1 and hold button
+const buttonContainer = document.createElement('div');
+buttonContainer.id = 'buttonContainer';
+buttonContainer.appendChild(resetButton);
+
