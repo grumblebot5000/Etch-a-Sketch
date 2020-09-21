@@ -1,0 +1,25 @@
+h1 {
+	background-color: cyan;
+	text-align: center;
+}
+
+body {
+	text-align: center;
+}
+
+#gridContainer {
+	align-items: stretch;
+	/*height: 960px;*/
+	margin: auto;
+	/*width: 960px;*/
+}
+
+.gridLineContainer {
+	align-items: stretch;
+	display: flex;
+	justify-content: center;
+}
+
+.gridBoxInit {
+	flex-grow: 1;
+}
