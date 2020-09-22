@@ -75,3 +75,4 @@ function deleteGridBoxes(){
 	initPage();
 }
 
+// RANDOM-COLORED SQUARES THAT GRADUALLY DARKEN //
