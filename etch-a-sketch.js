@@ -1,17 +1,33 @@
 // GLOBAL VARIABLES //
 let paperResolution; // how many columns (and rows) user wants
 
+// Create and insert the Reset button on the page
+const resetButton = document.createElement('button');
+resetButton.id = 'resetButton';
+resetButton.textContent = 'Reset';
+
+// Create div to append to h1 and hold button
+const buttonContainer = document.createElement('div');
+buttonContainer.id = 'buttonContainer';
+buttonContainer.appendChild(resetButton);
+document.getElementById('projectTitle').appendChild(buttonContainer);
+
 // WHEN PAGE IS LOADED, GET A GRID SIZE
 window.addEventListener('load', initPage);
 
 // When mouse enters gridBox, change the background color
 document.addEventListener('mousemove', function(e){
-	console.log('this id is: ' + e.target.id);
-	// if(e.target.id != 'projectTitle' && e.target.id != 'buttonContainer'){
 	if(e.target.className == 'gridBoxInit'){
 		let idNum = e.target.id;
 		drawLine(idNum);
 	}
+})
+
+// Click button to reset page
+resetButton.addEventListener('click', function(){
+	// delete gridBoxes then initPage
+	deleteGridBoxes();
+	// initPage();
 })
 
 // RESET THE PAGE and GET RESOLUTION FOR NEXT PAGE //
@@ -31,14 +47,14 @@ function drawGrid(num){
 		gridLineContainer.className = 'gridLineContainer';
 		gridLineContainer.height = gridHW + 'px';
 
-		// fill each row with the correct number/size of boxes
+		// fill each girdLineContainer with the correct number/size of boxes
 		for(let x=1; x<=num; x++){
 			let gridBox = document.createElement('div')
 			gridBox.className = 'gridBoxInit';
 			gridBox.textContent = '.';
 			gridBox.style.lineHeight = gridHW + 'px';
 			gridLineContainer.appendChild(gridBox);
-			gridBox.id = i + '-' + x;
+			gridBox.id = i+'-'+x;
 		}
 		
 		// append row to gridContainer div
@@ -51,13 +67,11 @@ function drawLine(idNum){
 	document.getElementById(idNum).className = 'gridBoxDrawn';
 }
 
-// Create and insert the Reset button on the page
-const resetButton = document.createElement('button');
-resetButton.id = 'resetButton';
-resetButton.textContent = 'Reset';
+function deleteGridBoxes(){
+	let parent = document.getElementById('gridContainer')
+	while(parent.firstChild){
+		parent.removeChild(parent.firstChild);	
+	}
+	initPage();
+}
 
-// Create div to append to h1 and hold button
-const buttonContainer = document.createElement('div');
-buttonContainer.id = 'buttonContainer';
-buttonContainer.appendChild(resetButton);
-document.getElementById('projectTitle').appendChild(buttonContainer);
