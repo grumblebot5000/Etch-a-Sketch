@@ -24,7 +24,5 @@ body {
 }
 
 .gridBoxDrawn {
-	background-color: black;
-	color: black;
 	flex: 1 0 0; /*grow 1, shrink 0, basis 0 */ 
 }

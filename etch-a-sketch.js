@@ -23,11 +23,22 @@ document.addEventListener('mousemove', function(e){
 	}
 })
 
+// Draw line on screen with mouse pointer
+function drawLine(idNum){
+	document.getElementById(idNum).className = 'gridBoxDrawn';
+	let bgColor = getRandomColor();
+	document.getElementById(idNum).style.backgroundColor = `hsl(${bgColor} 50% 50%)`;
+	document.getElementById(idNum).style.color = `hsl(${bgColor} 50% 50%)`;
+}
+
+function getRandomColor(){
+	let randomColor = Math.floor(Math.random()*360) + 1;
+	return randomColor;
+}
+
 // Click button to reset page
 resetButton.addEventListener('click', function(){
-	// delete gridBoxes then initPage
 	deleteGridBoxes();
-	// initPage();
 })
 
 // RESET THE PAGE and GET RESOLUTION FOR NEXT PAGE //
@@ -56,15 +67,9 @@ function drawGrid(num){
 			gridLineContainer.appendChild(gridBox);
 			gridBox.id = i+'-'+x;
 		}
-		
 		// append row to gridContainer div
 		document.getElementById('gridContainer').appendChild(gridLineContainer);
 	}
-}
-
-// Draw line on screen with mouse pointer
-function drawLine(idNum){
-	document.getElementById(idNum).className = 'gridBoxDrawn';
 }
 
 // delete gridLineContainers; init page
@@ -74,15 +79,4 @@ function deleteGridBoxes(){
 		parent.removeChild(parent.firstChild);	
 	}
 	initPage();
-}
-
-// RANDOM-COLORED SQUARES THAT GRADUALLY DARKEN //
-
-//proof of concept function
-function changeHeaderColor(){
-	let rando = Math.floor(Math.random()*360) + 1;
-	const colorTest = document.querySelector('h1');
-	colorTest.style.backgroundColor = `hsl(${rando} 50% 50%)`;
-	console.log('rando = ' + `${rando}`);
-	console.log('backgroundColor: ' + colorTest.style.backgroundColor);
 }
