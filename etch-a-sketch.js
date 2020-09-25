@@ -67,6 +67,7 @@ function drawLine(idNum){
 	document.getElementById(idNum).className = 'gridBoxDrawn';
 }
 
+// delete gridLineContainers; init page
 function deleteGridBoxes(){
 	let parent = document.getElementById('gridContainer')
 	while(parent.firstChild){
@@ -76,3 +77,12 @@ function deleteGridBoxes(){
 }
 
 // RANDOM-COLORED SQUARES THAT GRADUALLY DARKEN //
+
+//proof of concept function
+function changeHeaderColor(){
+	let rando = Math.floor(Math.random()*360) + 1;
+	const colorTest = document.querySelector('h1');
+	colorTest.style.backgroundColor = `hsl(${rando} 50% 50%)`;
+	console.log('rando = ' + `${rando}`);
+	console.log('backgroundColor: ' + colorTest.style.backgroundColor);
+}
